@@ -1,0 +1,10 @@
+:root { --bg: #fafafa; --fg: #1a1a1a; --muted: #666; --accent: #e60023; }
+@media (prefers-color-scheme: dark) { :root { --bg: #141414; --fg: #eee; --muted: #aaa; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 -apple-system, system-ui, sans-serif; }
+main { max-width: 720px; margin: 0 auto; padding: 48px 16px; }
+h1 { font-size: 2rem; margin: 0 0 8px; }
+h2 { font-size: 1.15rem; margin-top: 32px; }
+p.lead, .muted { color: var(--muted); }
+a { color: var(--accent); }
+nav { display: flex; gap: 16px; margin-top: 40px; font-size: .9rem; }

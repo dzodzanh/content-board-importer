@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TikTok Login</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main>
+  <h1>TikTok login</h1>
+  <p id="status" class="muted">Returning to the local app…</p>
+  <p id="manual" hidden>If nothing happens, copy this code into the terminal:<br><code id="code"></code></p>
+</main>
+<script>
+  // Forward the OAuth result to the CLI listening on this machine (scripts/tiktok_auth.py).
+  var q = location.search;
+  if (q) {
+    document.getElementById('code').textContent = new URLSearchParams(q).get('code') || q;
+    setTimeout(function () { document.getElementById('manual').hidden = false; }, 2000);
+    location.href = 'http://localhost:8086/callback' + q;
+  } else {
+    document.getElementById('status').textContent = 'No authorization data received.';
+  }
+</script>
+</body>
+</html>
